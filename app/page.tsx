@@ -20,17 +20,32 @@ import { cn } from "@/lib/utils";
 
 export default function Component() {
   const [width, setWidth] = useState(() => {
+    if (typeof localStorage === "undefined") return 500;
     return Number(localStorage.getItem("width")) || 500;
   });
   const [height, setHeight] = useState(() => {
+    if (typeof localStorage === "undefined") return 500;
     return Number(localStorage.getItem("height")) || 500;
   });
   const [count, setCount] = useState(() => {
+    if (typeof localStorage === "undefined") return 500;
     return Number(localStorage.getItem("count")) || 5;
   });
   const [isLoading, setIsLoading] = useState(false);
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const [downloaded, setDownloaded] = useState(0);
+
+  useEffect(() => {
+    if (localStorage.getItem("width")) {
+      setWidth(Number(localStorage.getItem("width")));
+    }
+    if (localStorage.getItem("height")) {
+      setHeight(Number(localStorage.getItem("height")));
+    }
+    if (localStorage.getItem("count")) {
+      setCount(Number(localStorage.getItem("count")));
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("width", width.toString());
