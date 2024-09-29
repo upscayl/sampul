@@ -76,7 +76,7 @@ export default function Component() {
       }
 
       const content = await zip.generateAsync({ type: "blob" });
-      saveAs(content, "sampul_images.zip");
+      saveAs(content, `sampul_images_${width}x${height}.zip`);
     } catch (error) {
       console.error("Error downloading images:", error);
       alert("An error occurred while downloading images. Please try again.");
