@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "Sampul",
     images: [
       {
-        url: "https://sampul.upscayl.org/og-image.png",
+        url: "https://sampul.upscayl.org/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Sampul - Custom Resolution Image Samples",
